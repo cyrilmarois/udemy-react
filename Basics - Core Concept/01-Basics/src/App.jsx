@@ -10,7 +10,6 @@ function App() {
 
   function handleClick(tab) {
     setTopic(tab);
-    console.log({ tab, topic });
   }
 
   return (
@@ -35,7 +34,7 @@ function App() {
             <CoreConcept concept={coreConcepts[3]} /> */}
           </ul>
         </section>
-        <h2>Time to get started!</h2>
+
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
@@ -47,7 +46,6 @@ function App() {
             <TabButton clicked={() => handleClick('state')}>State</TabButton>
           </menu>
           <div id='tab-content'>
-            {console.log({ examples })}
             <h3>{examples[topic].title}</h3>
             <p>{examples[topic].description}</p>
             <pre>
