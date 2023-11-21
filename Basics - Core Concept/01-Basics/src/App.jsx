@@ -32,18 +32,16 @@ function App() {
       <main>
         <section id='core-concepts'>
           <ul>
-            <CoreConcept
-              title={coreConcepts[0].title}
-              description={coreConcepts[0].description}
-              image={coreConcepts[0].image}
-            />
-            <CoreConcept {...coreConcepts[1]} />
-            <CoreConcept {...coreConcepts[2]} />
-            <CoreConcept
-              title={coreConcepts[3].title}
-              description={coreConcepts[3].description}
-              image={coreConcepts[3].image}
-            />
+            {coreConcepts.map((coreConcept) => {
+              return (
+                <CoreConcept
+                  key={coreConcept.title}
+                  title={coreConcept.title}
+                  description={coreConcept.description}
+                  image={coreConcept.image}
+                />
+              );
+            })}
             {/* CUSTOM props name
             <CoreConcept concept={coreConcepts[3]} /> */}
           </ul>
