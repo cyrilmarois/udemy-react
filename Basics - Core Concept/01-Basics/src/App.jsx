@@ -12,6 +12,20 @@ function App() {
     setTopic(tab);
   }
 
+  // other way to render dynamic content
+  let tabContent = <p>Please select a topic</p>;
+  if (topic) {
+    tabContent = (
+      <div id='tab-content'>
+        <h3>{examples[topic].title}</h3>
+        <p>{examples[topic].description}</p>
+        <pre>
+          <code>{examples[topic].code}</code>
+        </pre>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Header />
@@ -56,6 +70,7 @@ function App() {
               </pre>
             </div>
           )}
+          {/* OTHER WAY to DISPLAY {tabContent} */}
         </section>
       </main>
     </div>
