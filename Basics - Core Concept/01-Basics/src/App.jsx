@@ -6,7 +6,7 @@ import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
-  const [topic, setTopic] = useState('components');
+  const [topic, setTopic] = useState();
 
   function handleClick(tab) {
     setTopic(tab);
@@ -45,13 +45,17 @@ function App() {
             <TabButton clicked={() => handleClick('props')}>Props</TabButton>
             <TabButton clicked={() => handleClick('state')}>State</TabButton>
           </menu>
-          <div id='tab-content'>
-            <h3>{examples[topic].title}</h3>
-            <p>{examples[topic].description}</p>
-            <pre>
-              <code>{examples[topic].code}</code>
-            </pre>
-          </div>
+          {!topic ? (
+            <p>Please select a topic</p>
+          ) : (
+            <div id='tab-content'>
+              <h3>{examples[topic].title}</h3>
+              <p>{examples[topic].description}</p>
+              <pre>
+                <code>{examples[topic].code}</code>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </div>
