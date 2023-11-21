@@ -1,3 +1,5 @@
+import './CoreConcept.css';
+
 // WITH JS destructuring
 // function CoreConcept({image, title, description}) {
 //   return (
