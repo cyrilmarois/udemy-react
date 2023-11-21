@@ -1,11 +1,17 @@
+import { useState } from 'react';
+
 import { CORE_CONCEPTS as coreConcepts } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
-  function handleClick(tabTitle) {
-    console.log({ tabTitle });
+  const [topic, setTopic] = useState('JARVIS is the true Hero');
+
+  function handleClick(tab) {
+    // setTopic(tab);
+    setTopic(tab);
+    console.log({ tab });
   }
 
   return (
@@ -41,6 +47,7 @@ function App() {
             <TabButton clicked={() => handleClick('Props')}>Props</TabButton>
             <TabButton clicked={() => handleClick('State')}>State</TabButton>
           </menu>
+          {topic}
         </section>
       </main>
     </div>
