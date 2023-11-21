@@ -1,5 +1,5 @@
 import reactPicture from './assets/react-core-concepts.png';
-import componentImage from './assets/components.png';
+import { CORE_CONCEPTS as coreConcepts } from './data.js';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
@@ -40,19 +40,24 @@ function App() {
         <section id='core-concepts'>
           <ul>
             <CoreConcept
-              title='Components'
-              description='The core UI'
-              image={componentImage}
+              title={coreConcepts[0].title}
+              description={coreConcepts[0].description}
+              image={coreConcepts[0].image}
             />
             <CoreConcept
-              title='JSX'
-              description='The core build'
-              image={componentImage}
+              title={coreConcepts[1].title}
+              description={coreConcepts[1].description}
+              image={coreConcepts[1].image}
             />
             <CoreConcept
-              title='PROPS'
-              description='The data passing'
-              image={componentImage}
+              title={coreConcepts[2].title}
+              description={coreConcepts[2].description}
+              image={coreConcepts[2].image}
+            />
+            <CoreConcept
+              title={coreConcepts[3].title}
+              description={coreConcepts[3].description}
+              image={coreConcepts[3].image}
             />
           </ul>
         </section>
