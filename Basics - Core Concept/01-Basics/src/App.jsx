@@ -44,11 +44,7 @@ function App() {
               description={coreConcepts[0].description}
               image={coreConcepts[0].image}
             />
-            <CoreConcept
-              title={coreConcepts[1].title}
-              description={coreConcepts[1].description}
-              image={coreConcepts[1].image}
-            />
+            <CoreConcept {...coreConcepts[1]} />
             <CoreConcept
               title={coreConcepts[2].title}
               description={coreConcepts[2].description}
