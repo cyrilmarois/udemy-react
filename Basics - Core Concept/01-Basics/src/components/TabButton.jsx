@@ -1,7 +1,7 @@
-export default function TabButton(props) {
+export default function TabButton({ children, clicked }) {
   return (
     <li>
-      <button>{props.children}</button>
+      <button onClick={clicked}>{children}</button>
     </li>
   );
 }
