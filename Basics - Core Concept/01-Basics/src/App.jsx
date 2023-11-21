@@ -31,6 +31,27 @@ function CoreConcept(props) {
     </li>
   );
 }
+// WITH JS destructuring
+// function CoreConcept({image, title, description}) {
+//   return (
+//     <li>
+//       <img src={image} alt={description} />
+//       <h3>{title}</h3>
+//       <p>{description}</p>
+//     </li>
+//   );
+// }
+
+// CUSTOM props name
+// function CoreConcept({concept}) {
+//   return (
+//     <li>
+//       <img src={concept.image} alt={concept.description} />
+//       <h3>{concept.title}</h3>
+//       <p>{concept.description}</p>
+//     </li>
+//   );
+// }
 
 function App() {
   return (
@@ -45,11 +66,8 @@ function App() {
               image={coreConcepts[0].image}
             />
             <CoreConcept {...coreConcepts[1]} />
-            <CoreConcept
-              title={coreConcepts[2].title}
-              description={coreConcepts[2].description}
-              image={coreConcepts[2].image}
-            />
+            {/* CUSTOM props name */}
+            <CoreConcept concept={coreConcepts[2]} />
             <CoreConcept
               title={coreConcepts[3].title}
               description={coreConcepts[3].description}
