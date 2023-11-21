@@ -1,17 +1,16 @@
 import { useState } from 'react';
 
-import { CORE_CONCEPTS as coreConcepts } from './data.js';
+import { CORE_CONCEPTS as coreConcepts, EXAMPLES as examples } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
-  const [topic, setTopic] = useState('JARVIS is the true Hero');
+  const [topic, setTopic] = useState('components');
 
   function handleClick(tab) {
-    // setTopic(tab);
     setTopic(tab);
-    console.log({ tab });
+    console.log({ tab, topic });
   }
 
   return (
@@ -40,14 +39,21 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton clicked={() => handleClick('Components')}>
+            <TabButton clicked={() => handleClick('components')}>
               Components
             </TabButton>
-            <TabButton clicked={() => handleClick('JSX')}>JSX</TabButton>
-            <TabButton clicked={() => handleClick('Props')}>Props</TabButton>
-            <TabButton clicked={() => handleClick('State')}>State</TabButton>
+            <TabButton clicked={() => handleClick('jsx')}>JSX</TabButton>
+            <TabButton clicked={() => handleClick('props')}>Props</TabButton>
+            <TabButton clicked={() => handleClick('state')}>State</TabButton>
           </menu>
-          {topic}
+          <div id='tab-content'>
+            {console.log({ examples })}
+            <h3>{examples[topic].title}</h3>
+            <p>{examples[topic].description}</p>
+            <pre>
+              <code>{examples[topic].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
