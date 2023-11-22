@@ -1,10 +1,10 @@
-import Scoreboard from './components/Scoreboard.jsx';
+import ScoreBoard from './components/ScoreBoard.jsx';
 
 function App() {
   return (
     <main>
       <div id='game-container'>
-        <Scoreboard />
+        <ScoreBoard />
       </div>
       GAME BOARD
     </main>

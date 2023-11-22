@@ -1,6 +1,6 @@
 import Player from './Player.jsx';
 
-export default function Scoreboard() {
+export default function ScoreBoard() {
   return (
     <ol id='players'>
       <Player initialName='Player 1' symbol='X' />
