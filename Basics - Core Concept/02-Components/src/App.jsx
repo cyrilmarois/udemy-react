@@ -21,7 +21,7 @@ function App() {
 
   if (selectedTopic) {
     tabContent = (
-      <div id="tab-content">
+      <div id='tab-content'>
         <h3>{EXAMPLES[selectedTopic].title}</h3>
         <p>{EXAMPLES[selectedTopic].description}</p>
         <pre>
@@ -32,10 +32,10 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <section id="core-concepts">
+        <section id='core-concepts'>
           <h2>Core Concepts</h2>
           <ul>
             {CORE_CONCEPTS.map((conceptItem) => (
@@ -43,7 +43,7 @@ function App() {
             ))}
           </ul>
         </section>
-        <section id="examples">
+        <section id='examples'>
           <h2>Examples</h2>
           <menu>
             <TabButton
@@ -74,7 +74,7 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+    </>
   );
 }
 
