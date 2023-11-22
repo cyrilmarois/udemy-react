@@ -1,4 +1,5 @@
 import ScoreBoard from './components/ScoreBoard.jsx';
+import GameBoard from './components/GameBoard.jsx';
 
 function App() {
   return (
@@ -6,7 +7,7 @@ function App() {
       <div id='game-container'>
         <ScoreBoard />
       </div>
-      GAME BOARD
+      <GameBoard />
     </main>
   );
 }
