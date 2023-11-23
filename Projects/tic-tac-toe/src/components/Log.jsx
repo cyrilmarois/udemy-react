@@ -1,5 +1,4 @@
 export default function Log({ logs }) {
-  console.log({ logs });
   return (
     <ol id='log'>
       {logs.map((log, index) => (
