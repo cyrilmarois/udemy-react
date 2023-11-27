@@ -15,33 +15,29 @@ const Results = ({ dataInput }) => {
     resultsData[0].annualInvestment;
 
   return (
-    <>
-      <div id='result'>
-        <table>
-          <thead>
-            <tr>
-              <th>Year</th>
-              <th>Investment Value</th>
-              <th>APR (Year)</th>
-              <th>Total value interest</th>
-              <th>Invested Capital</th>
+    <table id='result'>
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Investment Value</th>
+          <th>APR (Year)</th>
+          <th>Total value interest</th>
+          <th>Invested Capital</th>
+        </tr>
+      </thead>
+      <tbody>
+        {resultsData.map((data) => {
+          return (
+            <tr key={data.year}>
+              <ResultDetails
+                initialInvestment={initialInvestment}
+                data={data}
+              />
             </tr>
-          </thead>
-          <tbody>
-            {resultsData.map((data) => {
-              return (
-                <tr key={data.year}>
-                  <ResultDetails
-                    initialInvestment={initialInvestment}
-                    data={data}
-                  />
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 
