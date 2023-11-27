@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Places from './Places.jsx';
 import axios from 'axios';
 import Error from './Error.jsx';
+import { sortPlacesByDistance } from '../loc.js';
 
 export default function AvailablePlaces({ onSelectPlace }) {
   const [isFetching, setIsFetching] = useState(false);
@@ -17,11 +18,20 @@ export default function AvailablePlaces({ onSelectPlace }) {
         if (!response.ok) {
           throw new Error('Failed to fetch places');
         }
-        setAvailablePlaces(data.places);
+
+        navigator.geolocation.getCurrentPosition((position) => {
+          const sortedPlaces = sortPlacesByDistance(
+            data.places,
+            position.coords.latitude,
+            position.coords.longitude
+          );
+          setAvailablePlaces(sortedPlaces);
+          setIsFetching(false);
+        });
       } catch (error) {
         setError({ message: error.message || 'Something wrong happened !' });
+        setIsFetching(false);
       }
-      setIsFetching(false);
       // const response = await axios.get('http://localhost:3000/places');
       // console.log(response);
       // setTimeout(() => {
