@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Places from './Places.jsx';
-import axios from 'axios';
 import Error from './Error.jsx';
 import { sortPlacesByDistance } from '../loc.js';
 import { fetchAvailablePlaces } from '../http.js';
@@ -28,12 +27,6 @@ export default function AvailablePlaces({ onSelectPlace }) {
         setError({ message: error.message || 'Something wrong happened !' });
         setIsFetching(false);
       }
-      // const response = await axios.get('http://localhost:3000/places');
-      // console.log(response);
-      // setTimeout(() => {
-      //   setAvailablePlaces(response.data.places);
-      //   setIsFetching(false);
-      // }, 1500);
     }
 
     fetchPlaces();

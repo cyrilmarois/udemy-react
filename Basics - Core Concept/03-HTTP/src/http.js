@@ -1,9 +1,29 @@
 export async function fetchAvailablePlaces() {
   const response = await fetch('http://localhost:3000/places');
-  const data = await response.json();
+  const resData = await response.json();
   if (!response.ok) {
     throw new Error('Failed to fetch places');
   }
 
-  return data.places;
+  // example using axios
+  // const response = await axios.get('http://localhost:3000/places');
+
+  return resData.places;
+}
+
+export async function updateUserPlaces(places) {
+  const response = await fetch('http://localhost:3000/user-placesss', {
+    method: 'PUT',
+    body: JSON.stringify({ places }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const resData = await response.json();
+  if (!response.ok) {
+    throw new Error('Failed to update places');
+  }
+
+  return resData.message;
 }
