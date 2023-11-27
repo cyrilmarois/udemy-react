@@ -1,35 +1,43 @@
-import { useState } from 'react';
 import ResultDetails from './ResultDetails';
+import { calculateInvestmentResults } from '../util/investment.js';
 
 const Results = ({ dataInput }) => {
-  console.log({ dataInput });
-  const [investments, setInvestments] = useState([]);
+  const resultsData = calculateInvestmentResults({
+    initialInvestment: dataInput.initialInvestment,
+    annualInvestment: dataInput.annualInvestment,
+    expectedReturn: dataInput.apr,
+    duration: dataInput.duration,
+  });
+
+  const initialInvestment =
+    resultsData[0].valueEndOfYear -
+    resultsData[0].interest -
+    resultsData[0].annualInvestment;
+
   return (
     <>
       <div id='result'>
         <table>
           <thead>
             <tr>
-              <th>id</th>
               <th>Year</th>
-              <th>initial</th>
-              <th>current</th>
-              <th>APR</th>
-              <th>duration</th>
+              <th>Investment Value</th>
+              <th>APR (Year)</th>
+              <th>Total value interest</th>
+              <th>Invested Capital</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {investments.map((invest) => (
-                <ResultDetails
-                  id={invest.id}
-                  year={invest.year}
-                  initialInvest={invest.initialInvest}
-                  apr={invest.apr}
-                  duration={invest.duration}
-                />
-              ))}
-            </tr>
+            {resultsData.map((data) => {
+              return (
+                <tr key={data.year}>
+                  <ResultDetails
+                    initialInvestment={initialInvestment}
+                    data={data}
+                  />
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
