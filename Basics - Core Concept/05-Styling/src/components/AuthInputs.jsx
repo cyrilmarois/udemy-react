@@ -36,7 +36,8 @@ export default function AuthInputs() {
           <label>Password</label>
           <input
             type='password'
-            className={passwordNotValid ? 'invalid' : undefined}
+            // className={passwordNotValid ? 'invalid' : undefined}
+            className={`jarvis ${passwordNotValid ? 'invalid' : undefined}`}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
             }
