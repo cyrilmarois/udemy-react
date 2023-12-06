@@ -24,7 +24,6 @@ export default function Player() {
             <h2>
                 Welcome {isButtonToggled ? inputPlayerName : 'unknown entity'}
             </h2>
-            <h2>Your level is {inputPlayerLevel ?? 'to be determined'}</h2>
             <p>
                 <input
                     type='text'
@@ -33,13 +32,14 @@ export default function Player() {
                 />
                 <button onClick={handlePlayerNameClick}>Set Name</button>
             </p>
-            <p>
+            {/* <h2>Your level is {inputPlayerLevel ?? 'to be determined'}</h2> */}
+            {/* <p>
                 <input
                     ref={playerLevel}
                     type='number'
                 />
                 <button onClick={handlePlayerLevelClick}>Set Level</button>
-            </p>
+            </p> */}
         </section>
     );
 }
