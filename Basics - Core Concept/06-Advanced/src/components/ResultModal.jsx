@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 
 const ResultModal = forwardRef(function ResultModal(
     { targetTime, remainingTime, onReset },
@@ -21,6 +21,7 @@ const ResultModal = forwardRef(function ResultModal(
         <dialog
             ref={dialog}
             className='result-modal'
+            onClose={onReset}
         >
             <h2>{userLost ? 'You Lost' : `Your score: ${score}`}</h2>
             <p>
